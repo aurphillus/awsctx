@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 
 import re
-import string
 import sys
-import os
 import shutil
 from pathlib import Path
-
-
 
 def parseCredentialsFile(creds):
 
@@ -51,7 +47,7 @@ def parseCredentialsFile(creds):
     return data, last_used
 
 
-def printParsedFile(data):
+def printParsedFile(data,last_used):
     found = False
     for line in data.keys():
         if line == last_used and len(last_used)>0:
@@ -89,7 +85,7 @@ def generateNewCredsFile(data,current_used):
 
     return creds
 
-if __name__ == '__main__':
+def ctxmanager(option):
     home = str(Path.home())
     WORKING_DIRECTORY = f"{home}/.aws/"
 
@@ -100,15 +96,10 @@ if __name__ == '__main__':
     creds = f.read()
     f.close()
 
-    try:
-        option = sys.argv[1]
-        if option == 'configure':
-            option = None
-            data_entry = True
-        else:
-            data_entry = False
-    except IndexError as e:
+    if option == 'configure':
         option = None
+        data_entry = True
+    else:
         data_entry = False
 
     if not data_entry:
@@ -127,9 +118,9 @@ if __name__ == '__main__':
             else:
                 print(f"Invalid Option: {option}. Following are the available profiles:")
                 print("-------------------")
-                printParsedFile(data)
+                printParsedFile(data,last_used)
         else:
-            printParsedFile(data)
+            printParsedFile(data,last_used)
     else:
         new_profile_data = ''
         print("Paste data to add a profile to your AWS credentials file.\n[Press Double Enter After Pasting]")
