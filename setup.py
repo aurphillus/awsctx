@@ -11,8 +11,8 @@ README = (HERE / "README.md").read_text()
 
 setup (
     name = 'awsctx',
-    description = 'A simple commandline app for searching and looking up opensource vulnerabilities',
-    version = '1.0.0',
+    description = 'A command line tool to change active AWS profiles and add/replace profiles.',
+    version = '1.0.1',
     packages = find_packages(), # list of all packages
     python_requires='>=3.6', # any python greater than 3.6
     entry_points='''

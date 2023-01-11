@@ -7,7 +7,7 @@ A command line tool to change active AWS profiles and add/replace profiles.
 ## Using Pip
 
 ```bash
-$ pip install awsctx
+$ pip3 install awsctx
 ```
 
 ## Manual 
