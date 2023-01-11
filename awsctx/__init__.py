@@ -1,15 +1,10 @@
-import sys
+# __init__.py
 
-from awsctx import ctxmanager
+from importlib import resources
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 
-def main():
-
-    try:
-        option = sys.argv[1]
-    except IndexError as e:
-        option = None
-    
-    ctxmanager(option)
-
-if __name__ == "__main__":
-    main()
+# Version of the awsctx package
+__version__ = "1.0.0"

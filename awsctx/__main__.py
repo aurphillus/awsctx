@@ -1,6 +1,7 @@
 import sys
 
-from awsctx import ctxmanager
+# from awsctx import ctxmanager
+from awsctx.awsctx import ctxmanager
 
 def main():
 

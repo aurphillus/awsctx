@@ -1,7 +1,4 @@
-#!/usr/bin/python3
-
 import re
-import sys
 import shutil
 from pathlib import Path
 
